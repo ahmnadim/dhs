@@ -1,0 +1,29 @@
+@charset "utf-8";
+/*-----------------------------
+[Master Stylesheet]
+Project:        Idea Homes
+Version:        1.0
+Last change:    13.01.2018
+Primary use:    Idea Homes Real Estate Business Template
+Author:         99 Designs
+******************************/
+@import "bootstrap.min.css";
+@import "font-awesome.min.css";
+@import "animate.min.css";
+@import "owl.carousel.css";
+@import "owl.transitions.css";
+@import "settings.css";
+@import "cubeportfolio.min.css";
+@import "jquery.fancybox.min.css";
+@import "bootsnav.css";
+@import "bootstrap-select.min.css";
+@import "range-Slider.min.css";
+@import "idea_homes_icons.css";
+@import "jquery.death.css";
+@import "dropzone.min.css";
+@import "datepicker.css";
+@import "landing-page-fonts.css";
+@import "timeline.css";
+@import "invoice.css";
+@import "style.css";
+

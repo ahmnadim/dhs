@@ -1,0 +1,70 @@
+/*-----------------------------------------------------------------------------------*/
+/*  FONT ICON
+/*-----------------------------------------------------------------------------------*/
+
+.features-item [data-icon]:before {
+    font-family: FontAwesome;
+    content: attr(data-icon);
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.features-item [class^="icon-"]:before,
+.features-item [class*=" icon-"]:before {
+    font-family: FontAwesome;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.features-item .icon-bath:before {
+    content: "";
+}
+.features-item .icon-calendar:before {
+    content: "";
+}
+.features-item .icon-car:before {
+    content: "";
+}
+.features-item .icon-bed:before {
+    content: "";
+}
+.features-item .icon-ruler:before {
+    content: "";
+}
+.features-item .icon-facebook:before {
+    content: "";
+}
+.features-item .icon-twitter:before {
+    content: "";
+}
+.features-item .icon-skype:before {
+    content: "";
+}
+.features-item .icon-googleplus:before {
+    content: "";
+}
+.features-item .icon-dribble:before {
+    content: "";
+}
+.icon-navicon-round:before {
+    content: "n";
+}
+.features-item .icon-remove-delete:before {
+    content: "o";
+}
+.features-item .icon-check-box:before {
+    content: "f";
+}
+.features-item .icon-search:before {
+    content: "m";
+}
