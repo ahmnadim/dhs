@@ -1,54 +1,170 @@
 @extends('layouts.frontend.app')
-@section('top_header')
-  <div id="header-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-sm-4 col-xs-12">
-          <p class="p-font-15 p-white"><a href="/">{{$title->sitetitle}}</a></p>
-        </div>
-        <div class="col-md-8 col-sm-8 col-xs-12 text-right">
-          <div class="header-top-links">
-            <ul>
-              <li><a href="{{ route('about') }}"><i class="icon-heart2"></i>About Us</a></li>
-              <li class="af-line"></li>
-              <li><a href="{{route('contact')}}"><i class="icon-icons215"></i>Contact Us</a></li>
+@section('title', 'Agents')
 
-              @guest
-              <li><a href="{{route('login')}}" class="header-login"><i class="icon-icons179"></i>Login</a></li>
-              <li><a href="{{route('register')}}" class="header-login"><i class="icon-icons179"></i>Register</a></li>
+@section('slider')
+<!--===== PAGE TITLE =====--> 
+<div class="page-title page-main-section parallaxie">
+  <div class="container padding-bottom-top-120 text-uppercase text-center">
+    <div class="main-title">
+      <h1>Our Team</h1>
+      <h5>10 Years Of Experience!</h5>
+      <div class="line_4"></div>
+      <div class="line_5"></div>
+      <div class="line_6"></div>
+      <a href="index.html">home</a><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+      <a href="#">Our Team - 2</a> </div>
+  </div>
+</div>
+<!--===== #/PAGE TITLE =====-->
+
+@endsection
+
+@section('welcome_section')
+<!--===== AGENTS =====--> 
+<section id="agent-2" class="padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-xs-12 top12 bottom20">
+        <div class="item">
+          <div class="image">
+            <img src="{{asset('assets/frontend/images/agen-s-1.jpg')}}" class="img-responsive"> 
+            <div class="img-info">
+              <h3>Rixon Bonds</h3>
+              <span>sales executive</span>
+              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+              sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
+              <a href="properties-listing.html" class="link_arrow">Contact Me</a>
+          <hr>
               
-              @else
-
-              <li class="nav-item dropdown">
-                                <a class="header-login" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre >
-                                     <span><i class="icon-icons179"></i>{{ Auth::user()->name }}</span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  
-                                    <a style="display: block;" class="dropdown-item" href="{{route('user.property.create')}}">
-                                    <i class="icon-icons179"></i><span class="glyphicon glyphicon-plus" style="color:red;">Add Property</span>
-                                    </a>
-                                    <a style="display: block;" class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    <i class="icon-icons179"></i><span style="color:red;">Logout</span>
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-
-                            </li>
-                            
-              @endguest
-
-            </ul>
+              <ul class="socials dark">
+            <li><a href="#."><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#."><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#."><i class="fa fa-whatsapp"></i></a></li>
+            <li><a href="#."><i class="fa fa-instagram"></i></a></li>
+          </ul>
+              
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 top12 bottom20">
+        <div class="item">
+          <div class="image">
+            <img src="{{asset('assets/frontend/images/agen-s-2.jpg')}}" class="img-responsive"> 
+            <div class="img-info">
+              <h3>Rixon Bonds</h3>
+              <span>sales executive</span>
+              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+              sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
+              <a href="properties-listing.html" class="link_arrow">Contact Me</a>
+          <hr>
+              
+              <ul class="socials dark">
+            <li><a href="#."><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#."><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#."><i class="fa fa-whatsapp"></i></a></li>
+            <li><a href="#."><i class="fa fa-instagram"></i></a></li>
+          </ul>
+              
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 top12 bottom20">
+        <div class="item">
+          <div class="image">
+            <img src="{{asset('assets/frontend/images/agen-s-3.jpg')}}" class="img-responsive"> 
+            <div class="img-info">
+              <h3>Rixon Bonds</h3>
+              <span>sales executive</span>
+              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+              sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
+              <a href="properties-listing.html" class="link_arrow">Contact Me</a>
+          <hr>
+              
+              <ul class="socials dark">
+            <li><a href="#."><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#."><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#."><i class="fa fa-whatsapp"></i></a></li>
+            <li><a href="#."><i class="fa fa-instagram"></i></a></li>
+          </ul>
+              
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 top12 bottom20">
+        <div class="item">
+          <div class="image">
+            <img src="{{asset('assets/frontend/images/agen-s-4.jpg')}}" class="img-responsive"> 
+            <div class="img-info">
+              <h3>Rixon Bonds</h3>
+              <span>sales executive</span>
+              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+              sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
+              <a href="properties-listing.html" class="link_arrow">Contact Me</a>
+          <hr>
+              
+              <ul class="socials dark">
+            <li><a href="#."><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#."><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#."><i class="fa fa-whatsapp"></i></a></li>
+            <li><a href="#."><i class="fa fa-instagram"></i></a></li>
+          </ul>
+              
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 top12 bottom20">
+        <div class="item">
+          <div class="image">
+            <img src="{{asset('assets/frontend/images/agen-s-5.jpg')}}" class="img-responsive"> 
+            <div class="img-info">
+              <h3>Rixon Bonds</h3>
+              <span>sales executive</span>
+              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+              sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
+              <a href="properties-listing.html" class="link_arrow">Contact Me</a>
+          <hr>
+              
+              <ul class="socials dark">
+            <li><a href="#."><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#."><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#."><i class="fa fa-whatsapp"></i></a></li>
+            <li><a href="#."><i class="fa fa-instagram"></i></a></li>
+          </ul>
+              
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 top12 bottom20">
+        <div class="item">
+          <div class="image">
+            <img src="{{asset('assets/frontend/images/agen-s-6.jpg')}}" class="img-responsive"> 
+            <div class="img-info">
+              <h3>Rixon Bonds</h3>
+              <span>sales executive</span>
+              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+              sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
+              <a href="properties-listing.html" class="link_arrow">Contact Me</a>
+          <hr>
+              
+              <ul class="socials dark">
+            <li><a href="#."><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#."><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#."><i class="fa fa-whatsapp"></i></a></li>
+            <li><a href="#."><i class="fa fa-instagram"></i></a></li>
+          </ul>
+              
+          </div>
           </div>
         </div>
       </div>
     </div>
+    
   </div>
+</section>
+<!--===== #/AGENTS =====-->
 @endsection
-

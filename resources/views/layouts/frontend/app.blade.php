@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>@yield('title')- Homes</title>
+<title>@yield('title') - DHS</title>
 <link rel="stylesheet" type="text/css" href="{{asset('assets/frontend/css/master.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/frontend/css/color.css')}}">
 <link rel="shortcut icon" href="{{URL::to('assets/frontend/images/short_icon.png')}}">
@@ -17,7 +17,7 @@
 
 <body class="pushmenu-push">
   <!--===== HEADER TOP =====-->
-  @yield('top_header')
+  @include('layouts.frontend.partials.top_header')
   <!--===== #/HEADER TOP =====--> 
 <!-- LOADER -->
 <!-- <div class="loader">
@@ -48,7 +48,7 @@
 <!-- #/WELCOME -->
 
 <!-- PROPERTY LISTING -->
-<section id="property" class="index3 bg_light padding">
+<section id="property" class="index3 bg_light">
   @yield('property_listing')
 </section>
 <!-- PROPERTY LISTING --> 
