@@ -1,10 +1,25 @@
 @extends('layouts.frontend.app')
 
-@section('title','Property-details')
+@section('title', 'Property-details')
+
+@push('css')
+  <style type="text/css">
+    .single-post-slider-image {
+      <?php $i=1; ?>
+          @foreach($property->pimages as $pic)
+            background: url({{Storage::url('propertyImages/'.$pic->name)}});
+        <?php $i++; if($i==2) break; ?>
+          @endforeach
+    position: relative;
+    z-index: 1;
+    background-repeat: no-repeat;   
+}
+  </style>
+@endpush
 
 @section('slider')
 <!-- PAGE TITLE -->
-<div class="page-title parallaxie">
+<div class="page-title single-post-slider-image parallaxie">
     
   <div class="container padding-bottom-top-120 text-uppercase text-center">
     <div class="main-title">
@@ -20,10 +35,9 @@
   </div>
 </div>
 <!--PAGE TITLE -->
-
 @endsection
-<!-- PROPERTY DETAILS -->
 
+<!-- PROPERTY DETAILS -->
 @section('welcome_section')
 <section class="property-details padding">
   <div class="container">
@@ -57,7 +71,7 @@
                 <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
                 <li role="presentation"><a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">Summary</a></li>
                 <li role="presentation"><a href="#features" aria-controls="features" role="tab" data-toggle="tab">Features</a></li>
-                <li role="presentation"><a href="#plan" aria-controls="plan" role="tab" data-toggle="tab">Plans</a></li>
+               
                 <li role="presentation"><a href="#tab_contact" aria-controls="tab_contact" role="tab" data-toggle="tab">Contact</a></li>
               </ul>
               <!-- Tab panes -->
@@ -193,74 +207,20 @@
                     </div>
                   </div>
                 </div>
-                <div role="tabpanel" class="tab-pane bg_light" id="plan">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h3 class="text-uppercase bottom20 top10">Our <span class="color_red">Plans</span></h3>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 top10">
-                      <div class="image">
-                        <img src="images/property-d-1-f-1.jpg" alt="image" />
-                        <div class="overlay border_radius">
-                          <a class="fancybox centered" href="images/property-d-1-f-1.jpg" data-fancybox-group="gallery"><i class="icon-focus"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 top10">
-                      <div class="image">
-                        <img src="images/property-d-1-f-2.jpg" alt="image" />
-                        <div class="overlay border_radius">
-                          <a class="fancybox centered" href="images/property-d-1-f-1.jpg" data-fancybox-group="gallery"><i class="icon-focus"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 top10">
-                      <div class="image">
-                        <img src="images/property-d-1-f-3.jpg" alt="image" />
-                        <div class="overlay border_radius">
-                          <a class="fancybox centered" href="images/property-d-1-f-1.jpg" data-fancybox-group="gallery"><i class="icon-focus"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 top10">
-                      <div class="image">
-                        <img src="images/property-d-1-f-4.jpg" alt="image" />
-                        <div class="overlay border_radius">
-                          <a class="fancybox centered" href="images/property-d-1-f-1.jpg" data-fancybox-group="gallery"><i class="icon-focus"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 top10">
-                      <div class="image">
-                        <img src="images/property-d-1-f-5.jpg" alt="image" />
-                        <div class="overlay border_radius">
-                          <a class="fancybox centered" href="images/property-d-1-f-1.jpg" data-fancybox-group="gallery"><i class="icon-focus"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 top10">
-                      <div class="image">
-                        <img src="images/property-d-1-f-6.jpg" alt="image" />
-                        <div class="overlay border_radius">
-                          <a class="fancybox centered" href="images/property-d-1-f-1.jpg" data-fancybox-group="gallery"><i class="icon-focus"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
                 <div role="tabpanel" class="tab-pane" id="tab_contact">
                   <div class="row">
                     <div class="col-md-12">
                       <h3 class="text-uppercase  bottom30 top10">Contact <span class="color_red">Agent</span></h3>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <div class="agent-p-img"> <img src="{{asset('assets/frontend/images/nasir.png')}}" class="img-responsive" alt="image" /> </div>
+                      <div class="agent-p-img"> <img src="{{Storage::url('agent/'.$agent->image)}}" class="img-responsive" alt="image" /> </div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                       <div class="agent-p-contact">
                         <div class="our-agent-box">
-                          <h3 class="bottom10">{{$property->user->name}}</h3>
-                          <p class="bottom30">{{$property->user->about}}</p>
+                          <h3 class="bottom10">{{$agent->name}}</h3>
+                          <p class="bottom30">{{$agent->about}}</p>
                         </div>
                         <div class="agetn-contact">
                           <h6>Phone:</h6>
@@ -269,10 +229,10 @@
                           <h6>Skype:</h6>
                         </div>
                         <div class="agetn-contact-2">
-                          <p>{{$property->user->phone}}</p>
-                          <p>{{$property->user->mobile}}</p>
-                          <p>{{$property->user->email}}</p>
-                          <p>{{$property->user->skype}}</p>
+                          <p>{{$agent->phone}}</p>
+                          <p>{{$agent->mobile}}</p>
+                          <p>{{$agent->email}}</p>
+                          <p>{{$agent->skype}}</p>
                         </div>
                       </div>
                       <ul class="socials">
@@ -414,216 +374,10 @@
 
           </div>
         </form>
-        </div>  </div>
+        </div>
+      </div>
     </div>
   </div>
   </div>
 </section>
 @endsection
-
-
-{{-- <section id="agent-p-2" class="property-details padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 bottom40">
-        <h2 class="text-uppercase">Similar <span class="color_red">Properties </span></h2>
-        <div class="line_1"></div>
-        <div class="line_2"></div>
-        <div class="line_3"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div id="property-1-slider" class="owl-carousel">
-        <div class="item">
-          <div class="property_item heading_space">
-            <div class="image">
-              <img src="images/b-d-property-2.jpg" alt="listin" class="img-responsive">
-              <div class="overlay">
-                <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
-              </div>
-              <div class="feature"><span class="tag">Featured</span></div>
-              <div class="price"><span class="tag">For Sale</span></div>
-              <div class="property_meta">
-                <span><i class="fa fa-object-group"></i>530 sq ft </span>
-                <span><i class="fa fa-bed"></i>2 Bedrooms</span>
-                <span><i class="fa fa-bath"></i>1 Bathroom</span>
-              </div>
-            </div>
-            <div class="proerty_content">
-              <div class="proerty_text">
-                <h3><a href="property_details_1.html">House in New York City</a></h3>
-                <span class="bottom10">Merrick Way, Miami, USA</span>
-                <p><strong>$83,600,200</strong></p>
-              </div>
-              <div class="favroute clearfix">
-                <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
-                <ul class="pull-right">
-                  <li><a href="#."><i class="icon-video"></i></a></li>
-                  <li><a href="#."><i class="icon-like"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="property_item heading_space">
-            <div class="image">
-              <img src="images/b-d-property.jpg" alt="listin" class="img-responsive">
-              <div class="overlay">
-                <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
-              </div>
-              <div class="feature"><span class="tag">Featured</span></div>
-              <div class="price"><span class="tag">For Sale</span></div>
-              <div class="property_meta">
-                <span><i class="fa fa-object-group"></i>530 sq ft </span>
-                <span><i class="fa fa-bed"></i> 3 Bedrooms</span>
-                <span><i class="fa fa-bath"></i>3 Bathroom</span>
-              </div>
-            </div>
-            <div class="proerty_content">
-              <div class="proerty_text">
-                <h3><a href="property_details_1.html">House in New York City</a></h3>
-                <span class="bottom10">Merrick Way, Miami, USA</span>
-                <p><strong>$83,600,200</strong></p>
-              </div>
-              <div class="favroute clearfix">
-                <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
-                <ul class="pull-right">
-                  <li><a href="#."><i class="icon-video"></i></a></li>
-                  <li><a href="#."><i class="icon-like"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="property_item heading_space">
-            <div class="image">
-              <img src="images/b-d-property-2.jpg" alt="listin" class="img-responsive">
-              <div class="overlay">
-                <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
-              </div>
-              <div class="feature"><span class="tag">Featured</span></div>
-              <div class="price"><span class="tag">For Sale</span></div>
-              <div class="property_meta">
-                <span><i class="fa fa-object-group"></i>530 sq ft </span>
-                <span><i class="fa fa-bed"></i>2 Bedrooms</span>
-                <span><i class="fa fa-bath"></i>1 Bathroom</span>
-              </div>
-            </div>
-            <div class="proerty_content">
-              <div class="proerty_text">
-                <h3><a href="property_details_1.html">House in New York City</a></h3>
-                <span class="bottom10">Merrick Way, Miami, USA</span>
-                <p><strong>$83,600,200</strong></p>
-              </div>
-              <div class="favroute clearfix">
-                <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
-                <ul class="pull-right">
-                  <li><a href="#."><i class="icon-video"></i></a></li>
-                  <li><a href="#."><i class="icon-like"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="property_item heading_space">
-            <div class="image">
-              <img src="images/b-d-property-2.jpg" alt="listin" class="img-responsive">
-              <div class="overlay">
-                <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
-              </div>
-              <div class="feature"><span class="tag">Featured</span></div>
-              <div class="price"><span class="tag">For Sale</span></div>
-              <div class="property_meta">
-                <span><i class="fa fa-object-group"></i>5,302 sq ft </span>
-                <span><i class="fa fa-bed"></i>2 Bedrooms</span>
-                <span><i class="fa fa-bath"></i>1 Bathroom</span>
-              </div>
-            </div>
-            <div class="proerty_content">
-              <div class="proerty_text">
-                <h3><a href="property_details_1.html">House in New York City</a></h3>
-                <span class="bottom10">Merrick Way, Miami, USA</span>
-                <p><strong>$83,600,200</strong></p>
-              </div>
-              <div class="favroute clearfix">
-                <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
-                <ul class="pull-right">
-                  <li><a href="#."><i class="icon-video"></i></a></li>
-                  <li><a href="#."><i class="icon-like"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="property_item heading_space">
-            <div class="image">
-              <img src="images/b-d-property.jpg" alt="listin" class="img-responsive">
-              <div class="overlay">
-                <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
-              </div>
-              <div class="feature"><span class="tag">Featured</span></div>
-              <div class="price"><span class="tag">For Sale</span></div>
-              <div class="property_meta">
-                <span><i class="fa fa-object-group"></i>5,630 sq ft </span>
-                <span><i class="fa fa-bed"></i>6 Bedrooms</span>
-                <span><i class="fa fa-bath"></i>8 Bathroom</span>
-              </div>
-            </div>
-            <div class="proerty_content">
-              <div class="proerty_text">
-                <h3><a href="property_details_1.html">House in New York City</a></h3>
-                <span class="bottom10">Merrick Way, Miami, USA</span>
-                <p><strong>$83,600,200</strong></p>
-              </div>
-              <div class="favroute clearfix">
-                <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
-                <ul class="pull-right">
-                  <li><a href="#."><i class="icon-video"></i></a></li>
-                  <li><a href="#."><i class="icon-like"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="property_item heading_space">
-            <div class="image">
-              <img src="images/b-d-property-2.jpg" alt="listin" class="img-responsive">
-              <div class="overlay">
-                <div class="centered"><a class="link_arrow white_border" href="property_details_1.html">View Detail</a></div>
-              </div>
-              <div class="feature"><span class="tag">Featured</span></div>
-              <div class="price"><span class="tag">For Sale</span></div>
-              <div class="property_meta">
-                <span><i class="fa fa-object-group"></i>530 sq ft </span>
-                <span><i class="fa fa-bed"></i>2 Bedrooms</span>
-                <span><i class="fa fa-bath"></i>1 Bathroom</span>
-              </div>
-            </div>
-            <div class="proerty_content">
-              <div class="proerty_text">
-                <h3><a href="property_details_1.html">House in New York City</a></h3>
-                <span class="bottom10">Merrick Way, Miami, USA</span>
-                <p><strong>$83,600,200</strong></p>
-              </div>
-              <div class="favroute clearfix">
-                <p class="pull-left"><i class="icon-calendar2"></i> 3 Days ago</p>
-                <ul class="pull-right">
-                  <li><a href="#."><i class="icon-video"></i></a></li>
-                  <li><a href="#."><i class="icon-like"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> --}}
-<!-- PROPERTY DETAILS -->
-
-  

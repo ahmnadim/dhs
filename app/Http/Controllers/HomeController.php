@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Property;
 use App\Sitetitle;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -26,7 +28,8 @@ class HomeController extends Controller
        
         $property = Post::find($id);
         $title = Sitetitle::find(1);
-        return view('single-property',compact('property','title'));
+        $agent = User::where('role_id', 3)->find($property->agent_id);
+        return view('single-property',compact('property','title', 'agent'));
     }
 
     // public function showUserLogin(){

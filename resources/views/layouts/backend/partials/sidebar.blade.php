@@ -60,6 +60,12 @@
                                 <span>Subscriber</span>
                             </a>
                         </li>
+                        <li class="{{ Request::is('admin/agent*')?'active' : ''}}">
+                            <a href="{{route('admin.agents')}}">
+                                <i class="material-icons">supervisor_account</i>
+                                <span>All Agents</span>
+                            </a>
+                        </li>
                         <li class="{{ Request::is('admin/alluser*')?'active' : ''}}">
                             <a href="{{route('admin.our.user')}}">
                                 <i class="material-icons">supervisor_account</i>

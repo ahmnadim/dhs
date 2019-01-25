@@ -34,8 +34,10 @@
                 </div>
 
                 <div class="body">
-                    <form action="{{ route('admin.property.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.property.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
+
+                        
                         <div class="form-group form-float">
                             <div class="form-line">
                                 <input type="text" id="property_titel" name="property_title" class="form-control">
@@ -68,7 +70,40 @@
                             </div>
 
                         </div>
+
                         <div class="form-group form-float">
+                            <div class="form-line {{$errors->has('agent_id') ? 'focused-error' : ''}} ">   
+                                <label for="agent_id">Agent</label>
+                                <select class="form-control show-tick" name="agent_id" id="agent_id" data-live-search="true">
+                                    @foreach($agents as $agent)
+                                        <option value="{{$agent->id}}">{{$agent->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" id="property_bathroom" name="property_bathroom" class="form-control">
+                                <label class="form-label">Property Bathroom</label>
+                            </div>
+                            @if ($errors->has('property_bathroom'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('property_bathroom') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+               
+
+                <div class="body">
+
+                    <div class="form-group form-float">
                             <div class="form-line">
                                 <input type="text" id="property_area" name="property_area" class="form-control">
                                 <label class="form-label">Property area</label>
@@ -91,26 +126,6 @@
                                 </span>
                             @endif
                         </div>
-
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="property_bathroom" name="property_bathroom" class="form-control">
-                                <label class="form-label">Property Bathroom</label>
-                            </div>
-                            @if ($errors->has('property_bathroom'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('property_bathroom') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-            <div class="card">
-               
-
-                <div class="body">
                         <div class="form-group form-float">
                             <div class="form-line">
                                 <input type="text" id="property_garage" name="property_garage" class="form-control">
@@ -172,10 +187,14 @@
                                 </span>
                             @endif
                         </div>
+
+                        
                         <input type="checkbox" id="property_publication_status" name="property_publication_status" class="filled-in" value="true">
                         <label for="property_publication_status">Publication Status</label>
+
                         <br>
                         <button type="submit" class="btn btn-primary m-t-15 waves-effect">SAVE</button>
+                        <button type="reset" class="btn btn-warning m-t-15 waves-effect">Cancel</button>
                     </form>
                 </div>
             </div>

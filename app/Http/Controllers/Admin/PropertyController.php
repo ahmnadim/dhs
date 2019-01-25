@@ -37,7 +37,8 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('admin.property.create');
+        $agents = User::where('role_id', 3)->get();
+        return view('admin.property.create', compact('agents'));
     }
 
     /**
@@ -50,6 +51,7 @@ class PropertyController extends Controller
     {
 
         $this->validate($request, [
+            'agent_id' => 'required',
             'property_title' => 'required',
             'property_description' => 'required',
             'property_area' => 'required',
@@ -65,6 +67,7 @@ class PropertyController extends Controller
         
         $post = new Post();         
         
+        $post->agent_id = $request->agent_id;
         $post->property_title = $request->property_title;
         $post->property_price = $request->property_price;
         $post->is_approve = $request->is_approve;
@@ -100,19 +103,20 @@ class PropertyController extends Controller
             if (!Storage::disk('public')->exists('propertyImages')) {
                 Storage::disk('public')->makeDirectory('propertyImages');
             }
+
             $image_array = $request->file('images');
             $array_len = count($image_array);
             for ($i=0; $i < $array_len ; $i++) { 
 
                 $currentDate = Carbon::now()->toDateString();
                 $imagename = $currentDate.'-'.uniqid().'.'.$image_array[$i]->getClientOriginalExtension();
-                $postimage = Image::make($image_array[$i])->resize(500,500)->stream();
+                $postimage = Image::make($image_array[$i])->resize(364,254)->stream();
                 Storage::disk('public')->put('propertyImages/'.$imagename, $postimage);
                 $img = new Post_image();
                 $img->name = $imagename;
                 $img->post_id = $currentId;
                 $img->save();
-            }
+            } 
         }
         Toastr::success('Post successfully inserted.','success');
         return redirect()->route('admin.property.index');

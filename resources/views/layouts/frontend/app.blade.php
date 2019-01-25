@@ -13,6 +13,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+@stack('css')
 </head>
 
 <body class="pushmenu-push">
@@ -42,7 +43,7 @@
 
 @yield('slider')
 
-
+@yield('content')
 <!-- WELCOME -->
 @yield('welcome_section')
 <!-- #/WELCOME -->
@@ -73,7 +74,6 @@
 
 @include('layouts.frontend.partials.footer')
 
-<!--===== REQUIRED JS =====--> 
 <script src="{{asset('assets/frontend/js/jquery-3.2.1.min.js')}}"></script> 
 <script src="{{asset('assets/frontend/js/bootstrap.min.js')}}"></script> 
 <script src="{{asset('assets/frontend/js/bootsnav.js')}}"></script>
@@ -82,7 +82,7 @@
 <script src="{{asset('assets/frontend/js/jquery.appear.js')}}"></script>
  
 <!--Owl Slider-->
-<script src="{{('assets/frontend/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assets/frontend/js/owl.carousel.min.js')}}"></script>
 
 <!--Parallax-->
 <script src="{{asset('assets/frontend/js/parallaxie.js')}}"></script>
@@ -121,10 +121,18 @@
 <script src="{{asset('assets/frontend/js/jquery-countTo.js')}}"></script> 
 
 <!--Checkbox-->
-<script src="{{asset('assets/frontend/js/jquery.typewriter.js"')}}></script> 
+<script src="{{asset('assets/frontend/js/jquery.typewriter.js')}}"></script> 
 
 <!--Checkbox-->
 <script src="{{asset('assets/frontend/js/death.min.js')}}"></script>
+
+<!--Maps & Markers-->
+<script src="{{asset('assets/frontend/js/form.js')}}"></script> 
+<script src="{{asset('assets/frontend/js/custom-map.js')}}"></script> 
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U"></script>
+<script src="{{asset('assets/frontend/js/gmaps.js')}}"></script>
+<script src="{{asset('assets/frontend/js/contact.js')}}"></script> 
+<!--===== #/REQUIRED JS =====-->
 
 <!--Revolution Slider-->
 <script src="{{asset('assets/frontend/js/themepunch/jquery.themepunch.tools.min.js')}}"></script>
@@ -137,17 +145,8 @@
 
 <!--Custom Js -->
 <script src="{{asset('assets/frontend/js/functions.js')}}"></script>
-
-<!--Maps & Markers-->
-<script src="{{asset('assets/frontend/js/form.js')}}"></script> 
-<script src="{{asset('assets/frontend/js/custom-map.js')}}"></script> 
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U"></script>
-<script src="{{asset('assets/frontend/js/gmaps.js')}}"></script>
-<script src="{{asset('assets/frontend/js/contact.js')}}"></script> 
-<!--===== #/REQUIRED JS =====-->
-     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
+ <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     
         {!! Toastr::message() !!}
 
@@ -163,3 +162,9 @@
     </script>
 </body>
 </html>
+Chat Conversation End
+Type a message...
+
+
+
+More stories loaded.

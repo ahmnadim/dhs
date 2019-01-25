@@ -39,6 +39,10 @@ Route::group(['as'=>'admin.','prefix'=>'admin', 'namespace'=>'Admin', 'middlewar
 
 	Route::get('allsubscriber','DashboardController@allsubscriber')->name('property.subscriber');
 	Route::get('alluser','DashboardController@alluserMethod')->name('our.user');
+	Route::get('agents/add','DashboardController@addagent')->name('agent.add');
+	Route::post('agents/add','DashboardController@store')->name('agent.add.post');
+	Route::get('agents','DashboardController@agents')->name('agents');
+	Route::get('edit-agents/{id}','DashboardController@editAgent')->name('agent.edit');
 	Route::delete('/subscriber/{id}/delete','DashboardController@deletesubscriber')->name('subscriber.delete');
 
 	Route::get('sitetitle', 'DashboardController@sitetitle')->name('sitetitle');

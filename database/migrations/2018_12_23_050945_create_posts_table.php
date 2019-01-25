@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->integer('agent_id')->nullable();
             $table->string('property_image')->default('default.png');
             $table->string('property_title');
             $table->text('property_description');
